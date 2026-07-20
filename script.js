@@ -35,7 +35,7 @@ const colors = [
     "pink"
 ];
 
-let balloonsLeft = 10;
+let currentBalloon = 10;
 
 /*==================================================
             CREATE BALLOONS
