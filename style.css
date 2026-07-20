@@ -146,6 +146,28 @@ body{
 
 }
 
+.balloon::before{
+
+    content:"";
+
+    position:absolute;
+
+    bottom:-12px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:18px;
+
+    height:14px;
+
+    background:inherit;
+
+    clip-path:polygon(50% 100%,0 0,100% 0);
+
+}
+
 .balloon::after{
 
     content:"";
@@ -219,41 +241,6 @@ body{
     /* baaki properties */
 
 }
-
-
-/* 👇 YAHAN PASTE KARO */
-
-.balloon::before{
-
-    content:"";
-
-    position:absolute;
-
-    bottom:-12px;
-
-    left:50%;
-
-    transform:translateX(-50%);
-
-    width:18px;
-
-    height:14px;
-
-    background:inherit;
-
-    clip-path:polygon(50% 100%,0 0,100% 0);
-
-}
-
-
-/* 👇 USKE BAAD */
-
-.balloon::after{
-
-    /* Wavy string wala code */
-
-}
-
 
 /* =========================
    MAIN CONTENT
