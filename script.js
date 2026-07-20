@@ -52,15 +52,11 @@ function createBalloons() {
 
     const balloon = document.createElement("div");
 
-    balloon.className =
-        "balloon " +
-        colors[Math.floor(Math.random() * colors.length)];
+    balloon.className = "balloon " + colors[Math.floor(Math.random() * colors.length)];
 
-    balloon.innerHTML = currentBalloon;
+    balloon.textContent = currentBalloon;
 
-    balloon.dataset.number = currentBalloon;
-
-    balloon.addEventListener("click", popBalloon);
+    balloon.onclick = popBalloon;
 
     balloonContainer.appendChild(balloon);
 
@@ -70,11 +66,9 @@ function createBalloons() {
                 POP BALLOON
 ==================================================*/
 
-function popBalloon(e) {
+function popBalloon(event) {
 
-    const balloon = e.currentTarget;
-
-    if (balloon.classList.contains("pop")) return;
+    const balloon = event.currentTarget;
 
     balloon.classList.add("pop");
 
