@@ -415,7 +415,7 @@ body{
 
 .photo:hover{
 
-    transform:scale(1.05) rotate(0deg);
+    transform:scale(2) rotate(0deg);
 
 }
 
