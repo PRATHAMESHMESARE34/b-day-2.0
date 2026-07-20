@@ -150,15 +150,19 @@ body{
 
     content:"";
 
-    width:2px;
-
-    height:70px;
-
-    background:#777;
-
     position:absolute;
 
-    top:118px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    bottom:-80px;
+
+    width:2px;
+
+    height:80px;
+
+    background:#666;
 
 }
 
