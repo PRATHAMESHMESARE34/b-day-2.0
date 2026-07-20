@@ -72,7 +72,17 @@ function popBalloon(event) {
 
     popSound.currentTime = 0;
     popSound.play().catch(()=>{});
-            
+            const rect=balloon.getBoundingClientRect();
+
+            balloonBurst(
+
+            rect.left+rect.width/2,
+
+            rect.top+rect.height/2,
+
+            getComputedStyle(balloon).backgroundColor
+
+);       
     balloon.classList.add("pop");
 
     balloon.style.pointerEvents = "none";
@@ -84,6 +94,75 @@ function popBalloon(event) {
         createBalloons();
 
     }, 500);
+
+
+}
+
+function balloonBurst(x,y,color){
+
+    for(let i=0;i<18;i++){
+
+        const piece=document.createElement("div");
+
+        piece.style.position="fixed";
+
+        piece.style.left=x+"px";
+
+        piece.style.top=y+"px";
+
+        piece.style.width="8px";
+
+        piece.style.height="8px";
+
+        piece.style.borderRadius="50%";
+
+        piece.style.background=color;
+
+        piece.style.pointerEvents="none";
+
+        piece.style.zIndex="9999";
+
+        document.body.appendChild(piece);
+
+        const angle=Math.random()*Math.PI*2;
+
+        const distance=80+Math.random()*70;
+
+        const dx=Math.cos(angle)*distance;
+
+        const dy=Math.sin(angle)*distance;
+
+        piece.animate([
+
+            {
+
+                transform:"translate(0,0) scale(1)",
+
+                opacity:1
+
+            },
+
+            {
+
+                transform:`translate(${dx}px,${dy}px) scale(0)`,
+
+                opacity:0
+
+            }
+
+        ],{
+
+            duration:700,
+
+            easing:"ease-out",
+
+            fill:"forwards"
+
+        });
+
+        setTimeout(()=>piece.remove(),700);
+
+    }
 
 }
 
