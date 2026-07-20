@@ -12,7 +12,7 @@ const TO_NAME = "My Lovely Sister";
 
 const fromName = document.getElementById("fromName");
 const toName = document.getElementById("toName");
-
+const popSound = document.getElementById("popSound");
 const balloonContainer = document.getElementById("balloonContainer");
 const balloonSection = document.getElementById("balloonSection");
 const mainContent = document.getElementById("mainContent");
@@ -70,6 +70,9 @@ function popBalloon(event) {
 
     const balloon = event.currentTarget;
 
+    popSound.currentTime = 0;
+    popSound.play().catch(()=>{});
+            
     balloon.classList.add("pop");
 
     balloon.style.pointerEvents = "none";
