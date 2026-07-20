@@ -1,1 +1,485 @@
 
+/* =========================
+   GOOGLE FONT
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+    background:#ffdbe7;
+    overflow-x:hidden;
+    min-height:100vh;
+    position:relative;
+
+}
+
+
+/* =========================
+   HIDE
+========================= */
+
+.hidden{
+    display:none;
+}
+
+
+/* =========================
+   BACKGROUND EFFECTS
+========================= */
+
+#hearts,
+#stars,
+#ribbons{
+
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:1;
+
+}
+
+
+/* =========================
+   BALLOON SCREEN
+========================= */
+
+#balloonSection{
+
+    position:relative;
+    z-index:5;
+
+    min-height:100vh;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    padding:30px;
+
+}
+
+
+.mainTitle{
+
+    font-family:'Pacifico',cursive;
+
+    font-size:55px;
+
+    color:#ff3b6f;
+
+    text-shadow:
+    2px 2px white;
+
+}
+
+
+.subtitle{
+
+    margin-top:10px;
+
+    font-size:22px;
+
+    color:#444;
+
+    font-weight:600;
+
+}
+
+
+#balloonContainer{
+
+    margin-top:50px;
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:25px;
+
+}
+
+
+/* =========================
+   BALLOON
+========================= */
+
+.balloon{
+
+    width:95px;
+
+    height:120px;
+
+    border-radius:50% 50% 45% 45%;
+
+    position:relative;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    cursor:pointer;
+
+    font-size:34px;
+
+    font-weight:bold;
+
+    color:white;
+
+    transition:.25s;
+
+    animation:
+    float 2.4s ease-in-out infinite;
+
+    box-shadow:
+    0 10px 20px rgba(0,0,0,.25);
+
+}
+
+.balloon:hover{
+
+    transform:scale(1.1);
+
+}
+
+.balloon::after{
+
+    content:"";
+
+    width:2px;
+
+    height:70px;
+
+    background:#777;
+
+    position:absolute;
+
+    top:118px;
+
+}
+
+
+.balloon.pop{
+
+    animation:pop .4s forwards;
+
+}
+
+
+/* Different Colours */
+
+.red{
+    background:#ff4b5c;
+}
+
+.blue{
+    background:#3da9fc;
+}
+
+.green{
+    background:#37c978;
+}
+
+.orange{
+    background:#ff9f43;
+}
+
+.purple{
+    background:#9b59ff;
+}
+
+.yellow{
+    background:#ffd93d;
+    color:#444;
+}
+
+.pink{
+    background:#ff7eb6;
+}
+
+
+/* =========================
+   MAIN CONTENT
+========================= */
+
+#mainContent{
+
+    position:relative;
+
+    z-index:5;
+
+    padding:70px 20px;
+
+}
+
+
+/* =========================
+   CARD
+========================= */
+
+.birthdayCard{
+
+    position:relative;
+
+    max-width:900px;
+
+    margin:auto;
+
+    background:#fff7cc;
+
+    border:10px solid #7b4a12;
+
+    border-radius:30px;
+
+    padding:70px 40px;
+
+    text-align:center;
+
+    box-shadow:
+    0 20px 45px rgba(0,0,0,.18);
+
+}
+
+
+/* Broken Border */
+
+.birthdayCard::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:240px;
+
+    height:20px;
+
+    background:#fff7cc;
+
+    top:-10px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+}
+
+
+/* FROM */
+
+.fromTag{
+
+    position:absolute;
+
+    top:-22px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    background:#fff7cc;
+
+    padding:5px 25px;
+
+    font-weight:bold;
+
+    color:#7b4a12;
+
+    font-size:24px;
+
+}
+
+
+#wishTitle{
+
+    font-family:'Pacifico';
+
+    color:#ff4d6d;
+
+    font-size:60px;
+
+}
+
+
+#toName{
+
+    margin-top:20px;
+
+    color:#6d2f45;
+
+    font-size:42px;
+
+}
+
+
+.wishText{
+
+    margin-top:35px;
+
+    line-height:1.9;
+
+    font-size:20px;
+
+    color:#555;
+
+}
+
+
+/* =========================
+   GALLERY
+========================= */
+
+.gallery{
+
+    margin:70px auto;
+
+    max-width:1100px;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(180px,1fr));
+
+    gap:30px;
+
+    align-items:center;
+
+}
+
+
+.photo{
+
+    background:white;
+
+    padding:20px;
+
+    border-radius:20px;
+
+    transform:rotate(-3deg);
+
+    transition:.35s;
+
+    box-shadow:
+    0 12px 30px rgba(0,0,0,.18);
+
+}
+
+.photo:nth-child(even){
+
+    transform:rotate(3deg);
+
+}
+
+.photo:hover{
+
+    transform:scale(1.05) rotate(0deg);
+
+}
+
+
+.photo img{
+
+    width:100%;
+
+    aspect-ratio:3/4;
+
+    object-fit:cover;
+
+    display:block;
+
+    border-radius:12px;
+
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes float{
+
+    0%{
+
+        transform:translateY(0px);
+
+    }
+
+    50%{
+
+        transform:translateY(-18px);
+
+    }
+
+    100%{
+
+        transform:translateY(0px);
+
+    }
+
+}
+
+
+@keyframes pop{
+
+    to{
+
+        transform:scale(2);
+
+        opacity:0;
+
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+.mainTitle{
+
+    font-size:40px;
+
+}
+
+#wishTitle{
+
+    font-size:42px;
+
+}
+
+#toName{
+
+    font-size:30px;
+
+}
+
+.wishText{
+
+    font-size:17px;
+
+}
+
+.fromTag{
+
+    font-size:18px;
+
+}
+
+}
