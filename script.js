@@ -41,59 +41,52 @@ let balloonsLeft = 10;
             CREATE BALLOONS
 ==================================================*/
 
-function createBalloons(){
+function createBalloons() {
 
     balloonContainer.innerHTML = "";
 
-    for(let i = balloonsLeft; i >= 1; i--){
-
-        const balloon = document.createElement("div");
-
-        balloon.className =
-            "balloon " +
-            colors[Math.floor(Math.random()*colors.length)];
-
-        balloon.innerHTML = i;
-
-        balloon.dataset.number = i;
-
-        balloon.addEventListener("click", popBalloon);
-
-        balloonContainer.appendChild(balloon);
-
+    if (currentBalloon <= 0) {
+        finishCountdown();
+        return;
     }
 
-}
+    const balloon = document.createElement("div");
 
-createBalloons();
+    balloon.className =
+        "balloon " +
+        colors[Math.floor(Math.random() * colors.length)];
+
+    balloon.innerHTML = currentBalloon;
+
+    balloon.dataset.number = currentBalloon;
+
+    balloon.addEventListener("click", popBalloon);
+
+    balloonContainer.appendChild(balloon);
+
+}
 
 /*==================================================
                 POP BALLOON
 ==================================================*/
 
-function popBalloon(e){
+function popBalloon(e) {
 
     const balloon = e.currentTarget;
 
-    if(balloon.classList.contains("pop")) return;
+    if (balloon.classList.contains("pop")) return;
 
     balloon.classList.add("pop");
 
-    setTimeout(()=>{
+    balloon.style.pointerEvents = "none";
 
-        balloonsLeft--;
+    setTimeout(() => {
 
-        if(balloonsLeft===0){
+        currentBalloon--;
 
-            finishCountdown();
+        createBalloons();
 
-        }else{
-
-            createBalloons();
-
-        }
-
-    },350);
+    }, 500);
 
 }
 
