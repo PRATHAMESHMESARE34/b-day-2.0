@@ -276,9 +276,30 @@ ease-in-out .45s infinite;
 
     box-shadow:
     0 20px 45px rgba(0,0,0,.18);
+   opacity:0;
+
+transform:
+perspective(1200px)
+rotateY(-90deg)
+scale(.9);
+
+transform-origin:left center;
+
+transition:
+transform 1s ease,
+opacity .8s ease;
 
 }
+.birthdayCard.show{
 
+    opacity:1;
+
+    transform:
+    perspective(1200px)
+    rotateY(0deg)
+    scale(1);
+
+}
 
 /* Broken Border */
 
