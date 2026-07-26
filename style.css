@@ -137,8 +137,9 @@ body{
     color:white;
 
     animation:
-float calc(4s + var(--speed))
-ease-in-out infinite;
+balloonAppear .45s ease,
+float calc(5s + var(--speed))
+ease-in-out .45s infinite;
 
     box-shadow:0 20px 40px rgba(0,0,0,.2);
 
@@ -432,6 +433,40 @@ ease-in-out infinite;
 /* =========================
    ANIMATIONS
 ========================= */
+@keyframes balloonAppear{
+
+    0%{
+
+        opacity:0;
+
+        transform:
+        translateY(80px)
+        scale(.4);
+
+    }
+
+    60%{
+
+        opacity:1;
+
+        transform:
+        translateY(-10px)
+        scale(1.08);
+
+    }
+
+    100%{
+
+        opacity:1;
+
+        transform:
+        translateY(0)
+        scale(1);
+
+    }
+
+}
+
 
 @keyframes float{
 
