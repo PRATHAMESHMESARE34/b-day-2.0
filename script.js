@@ -73,6 +73,11 @@ function popBalloon(event) {
 
     const balloon = event.currentTarget;
 
+    // Mobile vibration
+if (navigator.vibrate) {
+    navigator.vibrate([25, 20, 35]);
+}
+
     popSound.currentTime = 0;
     popSound.play().catch(()=>{});
             const rect=balloon.getBoundingClientRect();
@@ -86,7 +91,15 @@ function popBalloon(event) {
             getComputedStyle(balloon).backgroundColor
 
 );       
+    balloon.style.animation = "inflate .18s ease";
+
+setTimeout(() => {
+
+    balloon.classList.remove("pop");
+
     balloon.classList.add("pop");
+
+}, 170);
 
     balloon.style.pointerEvents = "none";
 
