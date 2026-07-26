@@ -134,7 +134,9 @@ body{
 
     color:white;
 
-    animation:float 2s ease-in-out infinite;
+    animation:
+float calc(4s + var(--speed))
+ease-in-out infinite;
 
     box-shadow:0 20px 40px rgba(0,0,0,.2);
 
