@@ -94,7 +94,7 @@ if (navigator.vibrate) {
 
             getComputedStyle(balloon).backgroundColor
 
-);       
+);   
     balloon.style.animation = "inflate .18s ease";
 
 setTimeout(() => {
