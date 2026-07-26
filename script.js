@@ -53,6 +53,10 @@ function createBalloons() {
     const balloon = document.createElement("div");
 
     balloon.style.setProperty("--speed",(Math.random()*2).toFixed(2)+"s"
+
+    balloon.style.setProperty("--x1", (Math.random()*18-9).toFixed(1) + "px");
+    balloon.style.setProperty("--x2", (Math.random()*24-12).toFixed(1) + "px");
+    balloon.style.setProperty("--rot", (Math.random()*8-4).toFixed(1) + "deg");
 );
 
     balloon.className = "balloon " + colors[Math.floor(Math.random() * colors.length)];
