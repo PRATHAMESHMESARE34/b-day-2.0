@@ -52,6 +52,9 @@ function createBalloons() {
 
     const balloon = document.createElement("div");
 
+    balloon.style.setProperty("--speed",(Math.random()*2).toFixed(2)+"s"
+);
+
     balloon.className = "balloon " + colors[Math.floor(Math.random() * colors.length)];
 
     balloon.textContent = currentBalloon;
