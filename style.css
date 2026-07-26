@@ -124,6 +124,8 @@ body{
 
     display:flex;
 
+    overflow: visible;
+
     justify-content:center;
 
     align-items:center;
@@ -232,17 +234,7 @@ ease-in-out infinite;
     background:#ff7eb6;
 }
 
-.balloon{
 
-    width:180px;
-    height:220px;
-    border-radius:50%;
-    position:relative;
-    overflow:visible;
-
-    /* baaki properties */
-
-}
 
 /* =========================
    MAIN CONTENT
