@@ -17,6 +17,7 @@ const balloonContainer = document.getElementById("balloonContainer");
 const balloonSection = document.getElementById("balloonSection");
 const mainContent = document.getElementById("mainContent");
 const bgMusic = document.getElementById("bgMusic");
+const celebrationSound = document.getElementById("celebrationSound");
 
 fromName.textContent = FROM_NAME;
 toName.textContent = TO_NAME;
@@ -198,23 +199,44 @@ function finishCountdown(){
 
         balloonSection.style.display="none";
 
-        mainContent.classList.remove("hidden");
+mainContent.classList.remove("hidden");
 
-        mainContent.animate([
-            {
-                opacity:0,
-                transform:"translateY(50px)"
-            },
-            {
-                opacity:1,
-                transform:"translateY(0)"
-            }
-        ],{
-            duration:1000,
-            fill:"forwards"
-        });
+/* Card Flip */
+setTimeout(() => {
 
-        bgMusic.play().catch(()=>{});
+    document
+        .querySelector(".birthdayCard")
+        .classList.add("show");
+
+}, 200);
+
+/* Fade in remaining content */
+mainContent.animate([
+    {
+        opacity:0,
+        transform:"translateY(50px)"
+    },
+    {
+        opacity:1,
+        transform:"translateY(0)"
+    }
+],{
+    duration:1000,
+    fill:"forwards"
+});
+
+/* Celebration Sound */
+if(typeof celebrationSound !== "undefined"){
+
+    celebrationSound.currentTime = 0;
+
+    celebrationSound.play().catch(()=>{});
+
+}
+
+/* Background Music */
+
+bgMusic.play().catch(()=>{});
 
     },700);
 
