@@ -533,3 +533,13 @@ ease-in-out infinite;
 .red{
    colour:#FF6666
 }
+
+balloon.style.animation = "inflate .18s ease";
+
+setTimeout(() => {
+
+    balloon.classList.remove("pop");
+
+    balloon.classList.add("pop");
+
+}, 170);
