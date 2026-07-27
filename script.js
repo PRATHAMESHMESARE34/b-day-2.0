@@ -663,7 +663,9 @@ const wishHTML = `
 <strong>
 इसलिए हर जगह बहन मिलने की बात तो सही है,<br>
 पर "मेरी बहन" की जगह कोई नहीं ले सकता ❤️
-</strong>
+</strong><br>
+<br>
+LOVE YOU KUTRE
 `;
 
 function startTyping(){
