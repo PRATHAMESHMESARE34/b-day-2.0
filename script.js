@@ -636,33 +636,33 @@ function floatingHeart(){
 
 const typedWish = document.getElementById("typedWish");
 
-const wishText = `
+const wishLines = [
 
-<span class="red">लोग पूछते थे हमसे :-</span><br><br>
+`<span class="red">लोग पूछते थे हमसे :-</span>`,
 
-<strong>"बहन तो हर जगह मिल जाएगी, फिर वही क्यों?"</strong><br><br>
+`<strong>"बहन तो हर जगह मिल जाएगी, फिर वही क्यों?"</strong>`,
 
-<span class="red">तो हमने भी कुछ इस कदर समझाया उन्हें :-</span><br><br>
+`<span class="red">तो हमने भी कुछ इस कदर समझाया उन्हें :-</span>`,
 
-हर बात पर डाँटती भी है, समझाती भी है,<br>
+`हर बात पर डाँटती भी है, समझाती भी है,<br>
 मेरे हर ग़म को भुलाकर, मुझे हँसाती भी है।<br>
 वो साथ हो तो हर पल खुशियों से भर जाता है,<br>
-और न हो तो मन भी उदास-सा लगने लगता है।<br><br>
+और न हो तो मन भी उदास-सा लगने लगता है।`,
 
-मेरी हर छोटी-सी बात को बिना कहे समझ जाती है,<br>
+`मेरी हर छोटी-सी बात को बिना कहे समझ जाती है,<br>
 खुद परेशान होकर भी मेरी फ़िक्र जताती है।<br>
 कभी माँ बनकर संभालती है, कभी दोस्त बनकर हँसाती है,<br>
-मेरी हर जीत से ज़्यादा खुश वो खुद हो जाती है।<br><br>
+मेरी हर जीत से ज़्यादा खुश वो खुद हो जाती है।`,
 
-रिश्ता सिर्फ़ ख़ून का ही नहीं, एहसास उम्रभर का है,<br>
-ऐसी बहन हर किसी को नहीं मिलती, ये नसीब वालों का हिस्सा है।<br><br>
+`रिश्ता सिर्फ़ ख़ून का ही नहीं, एहसास उम्रभर का है,<br>
+ऐसी बहन हर किसी को नहीं मिलती, ये नसीब वालों का हिस्सा है।`,
 
-<strong>
+`<strong>
 इसलिए हर जगह बहन मिलने की बात तो सही है,<br>
 पर "मेरी वाली" की जगह कोई नहीं ले सकता ❤️
-</strong>`;
+</strong>`
 
-let typingIndex = 0;
+];
 
 function startTyping(){
 
@@ -670,26 +670,23 @@ function startTyping(){
 
     typedWish.innerHTML = "";
 
-    typingIndex = 0;
+    let line = 0;
 
-    const timer = setInterval(()=>{
+    function typeNextLine(){
 
-        if(typingIndex >= wishText.length){
+        if(line >= wishLines.length) return;
 
-            clearInterval(timer);
+        typedWish.innerHTML += wishLines[line] + "<br><br>";
 
-            return;
+        line++;
 
-        }
+        setTimeout(typeNextLine,600);
 
-        typedWish.innerHTML += wishText.charAt(typingIndex);
+    }
 
-        typingIndex++;
-
-    },30);
+    typeNextLine();
 
 }
-
 /*==================================================
     MODIFY finishCountdown()
 ==================================================*/
