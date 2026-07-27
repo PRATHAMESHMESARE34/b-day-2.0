@@ -4,7 +4,7 @@
 ==================================================*/
 
 const FROM_NAME = "Prathamesh";
-const TO_NAME = "My Lovely Sister";
+const TO_NAME = "kuttre";
 
 /*==================================================
                     ELEMENTS
