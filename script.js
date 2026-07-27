@@ -252,6 +252,9 @@ if(typeof celebrationSound !== "undefined"){
 bgMusic.play().catch(()=>{});
 
     },700);
+/* Start Typing */
+
+startTyping();
 
 }
 createBalloons();
@@ -624,6 +627,62 @@ function floatingHeart(){
         heart.remove();
 
     },6000);
+
+}
+
+/*==============================
+        TYPING EFFECT
+==============================*/
+
+const typedWish = document.getElementById("typedWish");
+
+const wishText = `लोग पूछते थे हमसे :–
+
+"बहन तो हर जगह मिल जाएगी, फिर वही क्यों?"
+
+तो हमने भी कुछ इस कदर समझाया उन्हें :–
+
+हर बात पर डाँटती भी है, समझाती भी है,
+मेरे हर ग़म को भुलाकर, मुझे हँसाती भी है।
+वो साथ हो तो हर पल खुशियों से भर जाता है,
+और न हो तो मन भी उदास-सा लगने लगता है।
+
+मेरी हर छोटी-सी बात को बिना कहे समझ जाती है,
+खुद परेशान होकर भी मेरी फ़िक्र जताती है।
+कभी माँ बनकर संभालती है,
+कभी दोस्त बनकर हँसाती है।
+
+रिश्ता सिर्फ़ ख़ून का ही नहीं,
+एहसास उम्रभर का है।
+
+इसलिए हर जगह बहन मिलने की बात तो सही है,
+पर "मेरी वाली" की जगह कोई नहीं ले सकता ❤️`;
+
+let typingIndex = 0;
+
+function startTyping(){
+
+    if(!typedWish) return;
+
+    typedWish.innerHTML = "";
+
+    typingIndex = 0;
+
+    const timer = setInterval(()=>{
+
+        if(typingIndex >= wishText.length){
+
+            clearInterval(timer);
+
+            return;
+
+        }
+
+        typedWish.innerHTML += wishText.charAt(typingIndex);
+
+        typingIndex++;
+
+    },30);
 
 }
 
