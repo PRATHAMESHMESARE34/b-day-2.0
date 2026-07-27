@@ -634,35 +634,37 @@ function floatingHeart(){
         TYPING EFFECT
 ==============================*/
 
+/*==============================
+        TYPING EFFECT
+==============================*/
+
 const typedWish = document.getElementById("typedWish");
 
-const wishLines = [
+const wishHTML = `
+लोग पूछते थे हमसे :-<br><br>
 
-`लोग पूछते थे हमसे :-`,
+<strong>"बहन तो हर जगह मिल जाएगी, फिर वही क्यों?"</strong><br><br>
 
-`<strong>"बहन तो हर जगह मिल जाएगी, फिर वही क्यों?"</strong>`,
+तो हमने भी कुछ इस कदर समझाया उन्हें :-<br><br>
 
-`तो हमने भी कुछ इस कदर समझाया उन्हें :-`,
-
-`हर बात पर डाँटती भी है, समझाती भी है,<br>
+हर बात पर डाँटती भी है, समझाती भी है,<br>
 मेरे हर ग़म को भुलाकर, मुझे हँसाती भी है।<br>
 वो साथ हो तो हर पल खुशियों से भर जाता है,<br>
-और न हो तो मन भी उदास-सा लगने लगता है।`,
+और न हो तो मन भी उदास-सा लगने लगता है।<br><br>
 
-`मेरी हर छोटी-सी बात को बिना कहे समझ जाती है,<br>
+मेरी हर छोटी-सी बात को बिना कहे समझ जाती है,<br>
 खुद परेशान होकर भी मेरी फ़िक्र जताती है।<br>
 कभी माँ बनकर संभालती है, कभी दोस्त बनकर हँसाती है,<br>
-मेरी हर जीत से ज़्यादा खुश वो खुद हो जाती है।`,
+मेरी हर जीत से ज़्यादा खुश वो खुद हो जाती है।<br><br>
 
-`रिश्ता सिर्फ़ ख़ून का ही नहीं, एहसास उम्रभर का है,<br>
-ऐसी बहन हर किसी को नहीं मिलती, ये नसीब वालों का हिस्सा है।`,
+रिश्ता सिर्फ़ ख़ून का ही नहीं, एहसास उम्रभर का है,<br>
+ऐसी बहन हर किसी को नहीं मिलती, ये नसीब वालों का हिस्सा है।<br><br>
 
-`<strong>
+<strong>
 इसलिए हर जगह बहन मिलने की बात तो सही है,<br>
 पर "मेरी वाली" की जगह कोई नहीं ले सकता ❤️
-</strong>`
-
-];
+</strong>
+`;
 
 function startTyping(){
 
@@ -670,21 +672,37 @@ function startTyping(){
 
     typedWish.innerHTML = "";
 
-    let line = 0;
+    let i = 0;
 
-    function typeNextLine(){
+    function type(){
 
-        if(line >= wishLines.length) return;
+        if(i >= wishHTML.length) return;
 
-        typedWish.innerHTML += wishLines[line] + "<br><br>";
+        // HTML tag mila
+        if(wishHTML[i] === "<"){
 
-        line++;
+            const end = wishHTML.indexOf(">", i);
 
-        setTimeout(typeNextLine,600);
+            typedWish.innerHTML += wishHTML.substring(i, end + 1);
+
+            i = end + 1;
+
+            type();
+
+            return;
+
+        }
+
+        // Normal character
+        typedWish.innerHTML += wishHTML[i];
+
+        i++;
+
+        setTimeout(type, 25);
 
     }
 
-    typeNextLine();
+    type();
 
 }
 /*==================================================
